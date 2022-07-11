@@ -35,7 +35,7 @@ public class TestStack {
     }
 
     @Test
-    public void TestSet() {
+    public void TestHashSet() {
         // add, remove, contains, size
         // retainAll (intersection)
         Set<String> set1 = new HashSet<>();
@@ -82,6 +82,29 @@ public class TestStack {
         actualStr = myList.get(0);
         assertEquals(expectedStr, actualStr);
     }
-    // TODO HashMap, LinkedList, ArrayDeque, Vector,
+
+    @Test
+    public void TestHashMap() {
+        Map<String, Integer> myMap = new HashMap<>();
+        myMap.put("Alina", 45);
+        myMap.put("Betty", 18);
+        myMap.put("Don", 24);
+
+        Integer actual = myMap.get("Don");
+        Integer expected = 24;
+
+        assertEquals(expected, actual);
+        assertFalse(myMap.containsKey("don"));
+        assertTrue(myMap.containsKey("Betty"));
+        assertFalse(myMap.containsValue(17));
+        assertTrue(myMap.containsValue(45));
+
+        expected = 3;
+        actual = myMap.size();
+        assertEquals(expected, actual);
+        assertTrue(myMap.isEmpty());
+    }
+
+    // TODO LinkedList, ArrayDeque, Vector,
     //  TreeMap, TreeSet, Iterator, PriorityQueue, Comparable
 }
