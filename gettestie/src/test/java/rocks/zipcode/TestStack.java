@@ -166,5 +166,27 @@ public class TestStack {
         assertEquals(expected, actual);
     }
 
-    // TODO TreeSet, Iterator, PriorityQueue, Comparable
+    @Test
+    public void TestTreeSet() {
+        // first, pollFirst, higher, floor
+        TreeSet<Integer> myTreeSet = new TreeSet<>();
+        myTreeSet.add(3);
+        myTreeSet.add(7);
+        myTreeSet.add(2);
+        myTreeSet.add(13);
+
+        Integer expected = 2;
+        Integer actual = myTreeSet.first();
+        assertEquals(expected, actual);
+
+        myTreeSet.remove(2);
+        actual = myTreeSet.pollFirst();
+        assertNotEquals(expected, actual);
+
+        expected = 7;
+        actual = myTreeSet.higher(6);
+        assertEquals(expected, actual);
+    }
+
+    // TODO Iterator, PriorityQueue, Comparable
 }
