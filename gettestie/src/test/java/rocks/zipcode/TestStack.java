@@ -1,12 +1,8 @@
 package rocks.zipcode;
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-
+import org.junit.*;
+import java.util.*;
 import static org.junit.Assert.*;
-import java.util.Stack;
 
 public class TestStack {
 
@@ -38,5 +34,54 @@ public class TestStack {
         assertTrue(stack.isEmpty());
     }
 
-    // Make a bigger test exercising more Stack methods.....
+    @Test
+    public void TestSet() {
+        // add, remove, contains, size
+        // retainAll (intersection)
+        Set<String> set1 = new HashSet<>();
+        Set<String> set2 = new HashSet<>();
+        set1.add("a");
+        set1.add("b");
+        set1.add("b");
+        set2.add("b");
+        set2.add("c");
+        set2.add("d");
+
+        int expected = 2;
+
+        int actual = set1.size();
+        assertEquals(expected, actual);
+        assertTrue(set2.contains("c"));
+
+        set2.remove("c");
+        assertFalse(set2.contains("c"));
+
+        set1.retainAll(set2);
+        actual = set1.size();
+        expected = 1;
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void TestArrayList() {
+        List<String> myList = new ArrayList<>();
+        myList.add("a");
+        myList.add("a");
+        myList.add("b");
+        int expected = 3;
+
+        assertEquals(expected, myList.size());
+        assertFalse(myList.isEmpty());
+
+        String actualStr = myList.get(2);
+        String expectedStr = "b";
+        assertEquals(expectedStr, actualStr);
+
+        myList.set(0, "c");
+        expectedStr = "c";
+        actualStr = myList.get(0);
+        assertEquals(expectedStr, actualStr);
+    }
+    // TODO HashMap, LinkedList, ArrayDeque, Vector,
+    //  TreeMap, TreeSet, Iterator, PriorityQueue, Comparable
 }
