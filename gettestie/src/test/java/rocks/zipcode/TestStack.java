@@ -1,6 +1,8 @@
 package rocks.zipcode;
 
 import org.junit.*;
+import sun.awt.image.ImageWatched;
+
 import java.util.*;
 import static org.junit.Assert.*;
 
@@ -188,5 +190,20 @@ public class TestStack {
         assertEquals(expected, actual);
     }
 
-    // TODO Iterator, PriorityQueue, Comparable
+    @Test
+    public void TestIterator() {
+        Collection<Integer> myCollection = new LinkedList<>();
+        myCollection.add(5);
+        myCollection.add(7);
+        myCollection.add(1);
+        myCollection.add(3);
+
+        Iterator<Integer> iterator = myCollection.iterator();
+        while (iterator.hasNext()) {
+            Integer actual = iterator.next();
+            assertTrue(actual <= 7 && actual >= 1);
+        }
+    }
+
+    // TODO PriorityQueue, Comparable
 }
