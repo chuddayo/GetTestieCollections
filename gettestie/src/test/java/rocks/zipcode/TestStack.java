@@ -105,6 +105,66 @@ public class TestStack {
         assertTrue(myMap.isEmpty());
     }
 
-    // TODO LinkedList, ArrayDeque, Vector,
-    //  TreeMap, TreeSet, Iterator, PriorityQueue, Comparable
+    @Test
+    public void TestLinkedList() {
+        LinkedList<String> myList = new LinkedList<>();
+        myList.add("F");
+        myList.add("E");
+        myList.add("D");
+        myList.add("E");
+        myList.add("X");
+
+        assertEquals(5, myList.size());
+        assertEquals("D", myList.get(2));
+
+        myList.addFirst("A");
+        assertEquals("A", myList.get(0));
+        assertNotEquals("D", myList.get(2));
+
+        myList.removeLast();
+        assertEquals("E", myList.get(myList.size()-1));
+    }
+
+    @Test
+    public void TestArrayDeque() {
+        ArrayDeque<String> myDeque = new ArrayDeque<>();
+        myDeque.add("F");
+        myDeque.add("E");
+        myDeque.add("D");
+        myDeque.add("E");
+        myDeque.add("X");
+
+        assertEquals(5, myDeque.size());
+        assertNotEquals("D", myDeque.peekFirst());
+        assertEquals("F", myDeque.peekFirst());
+
+        myDeque.addFirst("A");
+        assertEquals("A", myDeque.peekFirst());
+        assertEquals("X", myDeque.peekLast());
+
+        myDeque.removeLast();
+        assertEquals("E", myDeque.peekLast());
+    }
+
+    @Test
+    public void TestVector() {
+        // return when we understand multiple threads / synchronization
+    }
+
+    @Test
+    public void TestTreeMap() {
+        Map<String, Integer> myTree = new TreeMap<>();
+        myTree.put("Don", 24);
+        myTree.put("Alina", 45);
+        myTree.put("Betty", 18);
+        Iterator<Map.Entry<String, Integer>> iterator = myTree.entrySet().iterator();
+
+        Map.Entry<String, Integer> myEntry = iterator.next();
+        Integer actual = myEntry.getValue();
+        Integer expected = 45;
+
+        assertEquals(expected, actual);
+    }
+
+    // TODO TreeSet, Iterator, PriorityQueue, Comparable
 }
