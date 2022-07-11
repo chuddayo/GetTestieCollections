@@ -205,5 +205,32 @@ public class TestStack {
         }
     }
 
-    // TODO PriorityQueue, Comparable
+    @Test
+    public void TestPriorityQueue() {
+        // The PriorityQueue provides largest or smallest element in O(1) time
+        PriorityQueue<Integer> myQ = new PriorityQueue<>();
+        myQ.add(3);
+        myQ.add(91);
+        myQ.add(15);
+        myQ.add(-22);;
+        myQ.add(0);
+
+        assertFalse(myQ.isEmpty());
+        Integer actual = myQ.remove();
+        Integer expected = 3;
+        assertNotEquals(expected, actual);
+        expected = -22;
+        assertEquals(expected, actual);
+
+        expected = 4;
+        actual = myQ.size();
+        assertEquals(expected, actual);
+        assertTrue(myQ.contains(15));
+
+        actual = myQ.peek();
+        expected = 0;
+        assertEquals(expected, actual);
+    }
+
+    // TODO Comparable
 }
