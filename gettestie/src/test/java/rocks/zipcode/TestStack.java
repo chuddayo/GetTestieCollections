@@ -104,7 +104,7 @@ public class TestStack {
         expected = 3;
         actual = myMap.size();
         assertEquals(expected, actual);
-        assertTrue(myMap.isEmpty());
+        assertFalse(myMap.isEmpty());
     }
 
     @Test
@@ -232,5 +232,12 @@ public class TestStack {
         assertEquals(expected, actual);
     }
 
-    // TODO Comparable
+    @Test
+    public void TestComparable() {
+        Person ron = new Person("Qan", 1970);
+        Person joy = new Person("Joy", 1975);
+        int actual = ron.compareTo(joy);
+
+        assertTrue(actual > 0);
+    }
 }
